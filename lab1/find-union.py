@@ -25,7 +25,6 @@ def union(x, y):
             x.parent = y
             if x.rank == y.rank:
                 y.rank += 1
-        return True
 
 
 def findUnionSolve(V, L, s, t):

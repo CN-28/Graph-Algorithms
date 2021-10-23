@@ -1,4 +1,4 @@
-# Algorytmy Grafowe
+# Graph algorithms
 # Piotr Faliszewski 2019
 # Load graph in the DIMACS ascii format + weights
 
