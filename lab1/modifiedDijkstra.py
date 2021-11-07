@@ -1,3 +1,5 @@
+import sys
+sys.path.append("")
 from dimacs import *
 from queue import PriorityQueue
 from os import listdir

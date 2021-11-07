@@ -1,3 +1,5 @@
+import sys
+sys.path.append("")
 from dimacs import *
 from os import listdir
 from os.path import join

@@ -1,6 +1,8 @@
-from dimacs import *
+import sys
+sys.path.append("")
 from os import listdir
 from os.path import join
+from dimacs import *
 
 def BS_DFS(V, L, s, t):
     G = [[] for _ in range(V + 1)]
