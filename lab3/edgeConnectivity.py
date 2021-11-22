@@ -1,3 +1,5 @@
+# Stoer-Wagner algorithm
+
 import sys
 sys.path.append("")
 from dimacs import *
