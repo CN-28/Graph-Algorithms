@@ -3,6 +3,7 @@ sys.path.append("")
 from dimacs import *
 from os import listdir
 from os.path import join
+from lex_bfs import lexBFS
 
 
 class Node:
@@ -12,40 +13,6 @@ class Node:
 
     def connect_to(self, v):
         self.out.add(v)
-
-
-def lexBFS(G, u):
-    subsets = [set(), set()]
-    V = {s for s in range(1, len(G))}
-    
-    for v in G[u].out:
-        subsets[1].add(v)
-    
-    visit_order = []
-    subsets[0] = V - subsets[1]
-    while subsets:
-        u = subsets[-1].pop()
-        visit_order.append(u)
-
-        new_subsets = []
-        for X in subsets:
-            Y = set()
-            K = set()
-
-            for v in X:
-                if v in G[u].out:
-                    Y.add(v)
-                else:
-                    K.add(v)
-                
-            if K:
-                new_subsets.append(K)
-            if Y:
-                new_subsets.append(Y)
-        
-        subsets = new_subsets
-    
-    return visit_order
 
 
 def checkLexBFS(G, vs):
@@ -67,6 +34,7 @@ def checkLexBFS(G, vs):
     return True
         
 
+
 if __name__ == "__main__":
     mypath = "lab4\\graphs-lab4\\chordal"
     for file in listdir(mypath):
@@ -78,6 +46,6 @@ if __name__ == "__main__":
             G[u].connect_to(v)
             G[v].connect_to(u)
         
-        x = lexBFS(G, 1)
-        print(checkLexBFS(G, x))
+        visit_order = lexBFS(G, 1)
+        print(checkLexBFS(G, visit_order))
         print()
